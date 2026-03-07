@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (c) 2025 harveyhans
+# Copyright (c) 2026 harveyhans
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -28,6 +28,8 @@ url="$1"
 filename="%(id)s"
 if [[ "$url" == *"youtube.com"* || "$url" == *"youtu.be"* ]]; then
 	filename="%(title)s_%(epoch)s"
+	cookies_arg="--cookies $HOME/yt-dlp/.youtube.com_cookies.txt"
+	youtube=1
 fi
 
 storage="$HOME/storage"
@@ -52,7 +54,6 @@ if [[ "$OPT" = "Download MP3" ]]; then
 		--convert-thumbnails webp \
 		--add-metadata \
 		--postprocessor-args 'EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf "crop=min(iw\,ih):min(iw\,ih)"' \
-		--extractor-args "youtube:player_js_version=actual" \
 		--exec "termux-media-scan"
 elif [[ "$OPT" = "Download Video" ]]; then
 	TRIM=$(termux-dialog confirm -i "Do you want to trim the video?" | jq ".text" -r)
@@ -75,8 +76,6 @@ elif [[ "$OPT" = "Download Video" ]]; then
 		--downloader $PREFIX/bin/aria2c \
 		--downloader-args "-j 16 -s 16 -x 16 -k 1M" \
 		--exec "termux-media-scan" \
-		--extractor-args "youtube:player_js_version=actual" \
-		--extractor-args "youtube:player_client=ios,tv,android_vr,web"
 else
 	exit
 fi

@@ -11,11 +11,11 @@ cd ~
 termux-setup-storage
 pkg update
 pkg upgrade
-pkg install python3 aria2 ffmpeg jq termux-api wget nano
+pkg install python3 aria2 ffmpeg jq termux-api wget nano deno
 mkdir -p yt-dlp
 wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O yt-dlp/
 chmod +x yt-dlp/yt-dlp
-echo 'export PATH="$PATH:/yt-dlp"' >> .bashrc
+echo 'export PATH="$PATH:$HOME/yt-dlp"' >> .bashrc
 source .bashrc
 mkdir ~/bin
 wget https://github.com/kairusds/termux-url-opener/raw/master/termux-url-opener -P ~/bin
@@ -41,5 +41,15 @@ From the YouTube app or any app, click `Share > More > Termux` and it should giv
 
 The downloaded MP3 files are stored in the `Music` folder on your internal storage, and the videos are stored on the `Movies` folder.
 
-## Notice
-- If you keep getting `Permission denied` errors, just grant the Storage permission again for the Termux app manually on the app info page. Running `termux-setup-storage` again if you already ran the command once wipes your entire internal storage.
+## Notices
+- If you keep getting `Permission denied` errors, just grant the Storage permission again for the Termux app manually on the app info page. Running `termux-setup-storage` again if you already ran the command once wipes your entire internal storage. You can also disable `Pause app activity if unused` or an option named along those lines in Termux's app info page, so the app's storage permissions won't get revoked if you don't use it for a long time.
+- For faster fixes/updates, switch to the nightly channel instead by running these commands:
+
+```sh
+# Change to nightly branch
+yt-dlp --update-to nightly
+
+# Update everyday/whenever you encounter issues
+yt-dlp -U
+```
+
