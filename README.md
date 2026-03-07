@@ -29,7 +29,6 @@ chmod +x ~/bin/termux-url-opener
 4. Enable "Get cookies.txt LOCALLY" for Private tabs on the Extensions menu by pressing the 3-dots menu icon > Extensions > Find and tap "Get cookies.txt LOCALLY" > Enable "Run in private browsing". Then, click Permissions > Enable "Allow for all sites" to effectively activate the extension.
 5. While on the same YouTube private tab with the logged in account, click "Get cookies.txt LOCALLY" from the same Extensions menu from step 4 then press "Copy".
 6. In Termux, run `nano ~/yt-dlp/.youtube.com_cookies.txt` and hold-tap the Termux screen then Press Paste. Afterwards, Press Ctrl+X > Press Y > Press Enter to save the file.
-6. In Termux again, paste and run this command: `echo '--cookies ~/yt-dlp/.youtube.com_cookies.txt' > ~/yt-dlp/yt-dlp.conf`
 7. Disable "Get cookies.txt LOCALLY" under Extensions Manager from the same Extensions menu in step 4 > Find and click "Get cookies.txt LOCALLY" > Toggle Enabled. (This is not mandatory but still a great security practice in case the extension gets compromised)
 
 `yt-dlp` should be working fine now if you setup the cookies correctly.
