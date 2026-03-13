@@ -22,7 +22,6 @@ wget https://github.com/kairusds/termux-url-opener/raw/master/termux-url-opener 
 chmod +x ~/bin/termux-url-opener
 ```
 
-### Update: Using cookies with yt-dlp for YouTube is breaking downloads at the moment (`The page needs to be reloaded` error). If this happens to you, remove the entire `$cookies_arg \` code lines from the **termux-url-opener** script.
 ### Getting cookies.txt file for `yt-dlp`
 1. Install and run a Firefox-based browser for Android: [Original Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox), [Iceraven](https://github.com/fork-maintainers/iceraven-browser/releases/latest) or [IronFox](https://gitlab.com/ironfox-oss/IronFox/-/releases)
 2. Install the [Get cookies.txt LOCALLY](https://addons.mozilla.org/en-US/firefox/addon/get-cookies-txt-locally/) Firefox extension
