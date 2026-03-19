@@ -40,7 +40,7 @@ OPT=$(termux-dialog radio -v "Download MP3,Download Video" -t "What do you want 
 
 if [[ "$OPT" = "Download MP3" ]]; then
 	yt-dlp \
-	    -f "best/bestaudio" \
+		-f "best/bestaudio" \
 		$cookies_arg \
 		--ignore-errors \
 		--no-mtime \
@@ -56,16 +56,9 @@ if [[ "$OPT" = "Download MP3" ]]; then
 		--postprocessor-args 'EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf "crop=min(iw\,ih):min(iw\,ih)"' \
 		--exec "termux-media-scan"
 elif [[ "$OPT" = "Download Video" ]]; then
-	TRIM=$(termux-dialog confirm -i "Do you want to trim the video?" | jq ".text" -r)
-	if [ $TRIM = "yes" ]; then
-		START=$(termux-dialog -i "hh:mm:ss" -t "Enter the start timestamp" | jq ".text" -r)
-		END=$(termux-dialog -i "inf = end of the video" -t "Enter the end timestamp" | jq ".text" -r)
-		trim_args="--download-sections "*$START-$END" --force-keyframes-at-cuts"
-	fi
 	yt-dlp \
 		--no-mtime \
 		-f "bestvideo+bestaudio/best" \
-		$trim_args \
 		$cookies_arg \
 		--ignore-errors \
 		-o "$storage/movies/Termux/$filename.%(ext)s" \
@@ -75,7 +68,7 @@ elif [[ "$OPT" = "Download Video" ]]; then
 		--merge-output-format "mp4/mkv" \
 		--downloader $PREFIX/bin/aria2c \
 		--downloader-args "-j 16 -s 16 -x 16 -k 1M" \
-		--exec "termux-media-scan" \
+		--exec "termux-media-scan"
 else
 	exit
 fi
