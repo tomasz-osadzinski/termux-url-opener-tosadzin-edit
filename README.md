@@ -18,7 +18,7 @@ chmod +x yt-dlp/yt-dlp
 echo 'export PATH="$PATH:$HOME/yt-dlp"' >> .bashrc
 source .bashrc
 mkdir ~/bin
-wget https://github.com/kairusds/termux-url-opener/raw/master/termux-url-opener -P ~/bin
+wget https://github.com/tomasz-osadzinski/termux-url-opener-tosadzin-edit/blob/master/termux-url-opener -P ~/bin
 chmod +x ~/bin/termux-url-opener
 ```
 
