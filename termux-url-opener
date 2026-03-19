@@ -70,3 +70,4 @@ elif [[ "$OPT" = "Download Video" ]]; then
 		--downloader-args "-j 16 -s 16 -x 16 -k 1M" \
 		--exec "termux-media-scan"
 fi
+exit
