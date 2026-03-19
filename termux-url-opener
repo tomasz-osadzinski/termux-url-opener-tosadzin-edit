@@ -22,14 +22,13 @@
 
 # Works with all sites supported by yt-dlp, 
 # see https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md
-# for more details. 
+# for more details.
 
 url="$1"
 filename="%(id)s"
 if [[ "$url" == *"youtube.com"* || "$url" == *"youtu.be"* ]]; then
 	filename="%(title)s_%(epoch)s"
 	cookies_arg="--cookies $HOME/yt-dlp/.youtube.com_cookies.txt"
-	youtube=1
 fi
 
 storage="$HOME/storage"
@@ -40,7 +39,7 @@ OPT=$(termux-dialog radio -v "Download MP3,Download Video" -t "What do you want 
 
 if [[ "$OPT" = "Download MP3" ]]; then
 	yt-dlp \
-		-f "best/bestaudio" \
+	    -f "best/bestaudio" \
 		$cookies_arg \
 		--ignore-errors \
 		--no-mtime \
@@ -69,4 +68,6 @@ elif [[ "$OPT" = "Download Video" ]]; then
 		--downloader $PREFIX/bin/aria2c \
 		--downloader-args "-j 16 -s 16 -x 16 -k 1M" \
 		--exec "termux-media-scan"
+else
+	exit
 fi
