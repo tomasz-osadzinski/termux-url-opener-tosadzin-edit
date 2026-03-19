@@ -2,6 +2,9 @@
 
 # Copyright (c) 2026 harveyhans
 #
+
+
+
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
@@ -23,6 +26,20 @@
 # Works with all sites supported by yt-dlp, 
 # see https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md
 # for more details.
+
+# Check if URL was provided
+if [ -z "$url" ]; then
+    echo "Error: No URL provided"
+    echo "Usage: $0 <url>"
+    echo "Example: $0 \"https://www.youtube.com/watch?v=...\""
+    exit 1
+fi
+
+# Also check if it's actually a URL (not "else" or other garbage)
+if [[ "$url" != "http"* ]] && [[ "$url" != *"."* ]]; then
+    echo "Error: '$url' doesn't look like a valid URL"
+    exit 1
+fi
 
 url="$1"
 filename="%(id)s"
@@ -70,4 +87,3 @@ elif [[ "$OPT" = "Download Video" ]]; then
 		--downloader-args "-j 16 -s 16 -x 16 -k 1M" \
 		--exec "termux-media-scan"
 fi
-exit
