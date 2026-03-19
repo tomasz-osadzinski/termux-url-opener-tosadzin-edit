@@ -1,0 +1,270 @@
+#!/bin/bash
+
+# Copyright (c) 2026 harveyhans
+# 
+# LICENSE: Do what you want, I'm not your mom.
+#I'm not going to lie and pretend I did this
+#by myself. I used Deepseek. ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+# ░  ▄▄▄▄▄  ██░▄▄▄██░▄▄▄▄▄ ██░██  ███▄░▄█▓██░   █▀▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄░░░░░
+# ░ ██▀▀▀██░████████░████▓░██░██  ██ ██ ██░▀██▄░████████████████████████████░░░░░
+# ░ ▀▀▀▀▀██░██░░░░██░████▓░██░██  ██ ██ ██░  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+# ░ ██████▀░██░░░░██░████▓░█████  ██ ██ ██░██▀░░   ▄▄▄▄▄  ██░▄▄▄██░▄▄▄▄▄ ██░██░░
+# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀██▄░▄█▀░▀██▓░██░████▓░████████░████▓░█████░░
+# ░  ▄▄▄▄▄  ██░▄▄▄██░▄▄▄▄▄ ██░██  ░░███░░  ░░██▓░██░████▓░██░░░░██░████▓░██░░██
+# ░ ██▀▀▀██░████████░████▓░██░██  ░███████░░████░████████░██░░░░██░████▓░██░░██
+# ░ ▀▀▀▀▀██░██░░░░██░████▓░██░██  ███████████████████████████████████████████████
+# ░ ██████▀░██░░░░██░████▓░█████  ███████████████████████████████████████████████
+# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+# ░███████░████████░███████░██░░░░██░███████░███▄░▄██░███████░██░░░░██░████████░
+# ░██░░░░█░██░░░░██░██░░░░█░██░░░░██░██░░░░█░████████░██░░░░█░██░░░░██░██░░░░██░
+# ░██░░░██░████████░███████░██░░░░██░███████░██░██░██░███████░████████░████████░
+# ░███████░██░░░░██░██░░░░█░██░░░░██░██░░░░█░██░░░██░██░░░░█░██░░░░██░██░░░░░░░
+# ░██░░░░░░██░░░░██░███████░███████░███████░███░░░███░███████░██░░░░██░██░░░░░░░
+# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+# =============================================
+# 1337 H4X0R M3D14 D0WNL04D3R - TH3 3D63
+# =============================================
+
+# ANSI color codes - 1337 style
+R00T='\033[0;31m'      # Red like blood
+H4X0R='\033[0;32m'     # Green like matrix
+G0LD='\033[1;33m'      # Gold like treasure
+SKY='\033[0;34m'       # Blue like sky
+PHRPL3='\033[0;35m'    # Purple like royalty
+C74N='\033[0;36m'      # Cyan like water
+W1D3='\033[1;37m'      # White like light
+N0C0L0R='\033[0m'      # No color
+B0LD='\033[1m'         # Bold like courage
+
+# ASCII separators
+S3P4R4T0R="┌────────────────────────────────────────────────────────────┐"
+S3P4R4T0R3ND="└────────────────────────────────────────────────────────────┘"
+H4CK_TH3_PL4N3T="══════════════════════════════════════════════════════════"
+
+# Clear screen - fresh canvas for our hack
+clear
+
+# Display 1337 banner
+echo -e "${R00T}${B0LD}"
+echo "╔══════════════════════════════════════════════════════════╗"
+echo "║     T3RMUX M3D1A D0WNL04D3R - 31337 H4X0R 3D1T10N       ║"
+echo "╚══════════════════════════════════════════════════════════╝"
+echo -e "${N0C0L0R}"
+
+# Function to show matrix-style loading
+m4tr1x_l04d() {
+    local pid=$1
+    local msg=$2
+    local chars="01"
+    echo -ne "${H4X0R}["
+    while kill -0 $pid 2>/dev/null; do
+        for ((i=0; i<10; i++)); do
+            echo -ne "\b${chars:RANDOM%${#chars}:1}"
+            sleep 0.05
+        done
+    done
+    echo -e "\b] ${G0LD}D0N3!${N0C0L0R}"
+}
+
+# Function to print hacker headers
+pr1nt_h34d3r() {
+    echo -e "\n${R00T}${B0LD}${H4CK_TH3_PL4N3T}${N0C0L0R}"
+    echo -e "${G0LD}${B0LD}>>> ${1} ${N0C0L0R}"
+    echo -e "${R00T}${B0LD}${H4CK_TH3_PL4N3T}${N0C0L0R}\n"
+}
+
+# Function to show progress like a boss
+sh0w_pr0gr3ss() {
+    local current=$1
+    local total=$2
+    local width=40
+    local percentage=$((current * 100 / total))
+    local completed=$((current * width / total))
+    local remaining=$((width - completed))
+    
+    printf "\r${H4X0R}["
+    printf "%${completed}s" | tr ' ' '#'
+    printf "%${remaining}s" | tr ' ' '.'
+    printf "]${G0LD} %d%%${N0C0L0R}" "$percentage"
+}
+
+# URL input with validation - we don't take no for an answer
+url="$1"
+if [ -z "$url" ]; then
+    echo -e "${G0LD}[!] N0 URL D3T3CT3D... R3QU3ST1NG 1NPUT...${N0C0L0R}"
+    url=$(termux-dialog text -i "http://" -t "[!] 3NT3R T4RG3T URL:" | jq -r ".text")
+    if [ -z "$url" ] || [ "$url" = "null" ]; then
+        echo -e "${R00T}[!] 3RR0R: N0 URL = N0 H4CK. 3X1T1NG...${N0C0L0R}"
+        exit 1
+    fi
+fi
+
+# Show target info
+echo -e "${H4X0R}[*] T4RG3T: ${W1D3}$url${N0C0L0R}"
+
+# Setup filenames - 1337 style
+filename="%{id}s"
+cookies_arg=""
+if [[ "$url" == *"youtube.com"* || "$url" == *"youtu.be"* ]]; then
+    filename="%{title}s_%{epoch}s"
+    cookies_arg="--cookies $HOME/yt-dlp/.youtube.com_cookies.txt"
+    echo -e "${R00T}[*] G00GL3 TUB3 D3T3CT3D. 1N1T14L1Z1NG 3XPL01T...${N0C0L0R}"
+fi
+
+storage="$HOME/storage"
+mkdir -p "$storage/music" "$storage/movies/Termux" 2>/dev/null
+
+# Main menu - choose your weapon
+pr1nt_h34d3r "S3L3CT W34P0N"
+
+OPT=$(termux-dialog radio \
+    -v "[MP3] 3XTR4CT 4UD10,[MP4] D0WNL04D V1D30,[FMT] L1ST F0RM4TS,[1NF0] V13W M3T4D4T4" \
+    -t "[?] CH00S3 Y0UR D3STRUCTION M3TH0D:" | jq -r ".text")
+
+case "$OPT" in
+    "[MP3] 3XTR4CT 4UD10"|"Download MP3")
+        pr1nt_h34d3r "4UD10 3XTR4CT10N 1N1T14T3D"
+        echo -e "${H4X0R}[*] Bypassing audio encryption...${N0C0L0R}"
+        echo -e "${H4X0R}[*] Cracking codec: ${W1D3}MP3 (320kbps)${N0C0L0R}"
+        echo -e "${H4X0R}[*] Target directory: ${W1D3}$storage/music/${N0C0L0R}"
+        echo -e "${H4X0R}[*] 1NJ3CT1NG THUMBNA1L5...${N0C0L0R}\n"
+        
+        # Run the hack
+        yt-dlp \
+            -f "bestaudio/best" \
+            $cookies_arg \
+            --ignore-errors \
+            --no-mtime \
+            --extract-audio \
+            --audio-format mp3 \
+            --audio-quality 0 \
+            --embed-thumbnail \
+            --convert-thumbnails webp \
+            --add-metadata \
+            --postprocessor-args 'EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf "crop=min(iw\,ih):min(iw\,ih)"' \
+            --exec "termux-media-scan" \
+            --download-archive "$HOME/.h4x0r_4rch1v3.txt" \
+            --progress \
+            --newline \
+            --console-title \
+            -o "$storage/music/%(uploader)s - %(title)s.%(ext)s" \
+            "$url" 2>&1 | while read -r line; do
+                if [[ "$line" =~ \[download\]\ +([0-9.]+)% ]]; then
+                    percent="${BASH_REMATCH[1]%.*}"
+                    sh0w_pr0gr3ss "$percent" 100
+                fi
+            done
+            
+        echo -e "\n\n${H4X0R}[${G0LD}+${H4X0R}] 4UD10 3XTR4CT3D SUCCESSFULLY!${N0C0L0R}"
+        echo -e "${G0LD}[*] F1L3 5T0R3D 1N: ${W1D3}$storage/music/${N0C0L0R}\n"
+        
+        # Signal success
+        termux-vibrate -d 200
+        termux-toast "[+] 4UD10 H4CK3D!"
+        ;;
+        
+    "[MP4] D0WNL04D V1D30"|"Download Video")
+        pr1nt_h34d3r "V1D30 4CQU1S1T10N 1N PR0GR3SS"
+        
+        # Quality selection - how crispy you want it?
+        QUALITY=$(termux-dialog radio \
+            -v "[4K] 4K ULTRA HD,[1080p] FULL HD,[720p] HD R3ADY,[480p] 5D P1R4T3,[4UD] 4UD10 0NLY" \
+            -t "[?] S3L3C7 QU4L1TY:" | jq -r ".text")
+            
+        quality_filter="bestvideo+bestaudio/best"
+        case "$QUALITY" in
+            "[4K] 4K ULTRA HD") quality_filter="bestvideo[height<=2160]+bestaudio/best[height<=2160]" ;;
+            "[1080p] FULL HD") quality_filter="bestvideo[height<=1080]+bestaudio/best[height<=1080]" ;;
+            "[720p] HD R3ADY") quality_filter="bestvideo[height<=720]+bestaudio/best[height<=720]" ;;
+            "[480p] 5D P1R4T3") quality_filter="bestvideo[height<=480]+bestaudio/best[height<=480]" ;;
+            "[4UD] 4UD10 0NLY") quality_filter="bestaudio" ;;
+        esac
+        
+        echo -e "${H4X0R}[*] QU4L1TY: ${W1D3}$QUALITY${N0C0L0R}"
+        echo -e "${H4X0R}[*] T4RG3T: ${W1D3}$storage/movies/Termux/${N0C0L0R}"
+        echo -e "${H4X0R}[*] 1N1T14L1Z1NG 16 C0NN3CT10N5 W1TH 4R14C2...${N0C0L0R}\n"
+        
+        yt-dlp \
+            --no-mtime \
+            -f "$quality_filter" \
+            $cookies_arg \
+            --ignore-errors \
+            --restrict-filenames \
+            -S "res,vcodec:h264,acodec:m4a,ext" \
+            --merge-output-format "mp4/mkv" \
+            --downloader $PREFIX/bin/aria2c \
+            --downloader-args "-j 16 -s 16 -x 16 -k 1M" \
+            --exec "termux-media-scan" \
+            --progress \
+            --newline \
+            --console-title \
+            -o "$storage/movies/Termux/$filename.%(ext)s" \
+            "$url" 2>&1 | while read -r line; do
+                if [[ "$line" =~ \[download\]\ +([0-9.]+)% ]]; then
+                    percent="${BASH_REMATCH[1]%.*}"
+                    sh0w_pr0gr3ss "$percent" 100
+                fi
+            done
+            
+        echo -e "\n\n${H4X0R}[${G0LD}+${H4X0R}] V1D30 H4CK3D SUCCESSFULLY!${N0C0L0R}"
+        echo -e "${G0LD}[*] F1L3 5T0R3D 1N: ${W1D3}$storage/movies/Termux/${N0C0L0R}\n"
+        
+        termux-vibrate -d 300
+        termux-toast "[+] V1D30 H4CK3D!"
+        ;;
+        
+    "[FMT] L1ST F0RM4TS")
+        pr1nt_h34d3r "4V41L4BL3 F0RM4TS"
+        echo -e "${H4X0R}[*] GR4BB1NG F0RMAT 1NF0...${N0C0L0R}\n"
+        
+        yt-dlp -F "$url" --color always | while read -r line; do
+            if [[ "$line" =~ audio ]]; then
+                echo -e "${H4X0R}$line${N0C0L0R}"
+            elif [[ "$line" =~ video ]]; then
+                echo -e "${C74N}$line${N0C0L0R}"
+            else
+                echo -e "${G0LD}$line${N0C0L0R}"
+            fi
+        done
+        
+        echo -e "\n${G0LD}[*] PR3SS 3NT3R T0 R3TURN T0 M41N M3NU...${N0C0L0R}"
+        read
+        exec "$0" "$url"
+        ;;
+        
+    "[1NF0] V13W M3T4D4T4")
+        pr1nt_h34d3r "M3T4D4T4 4N4LYS1S"
+        echo -e "${H4X0R}[*] M1N1NG D4T4...${N0C0L0R}\n"
+        
+        # Extract metadata
+        title=$(yt-dlp --get-title "$url" 2>/dev/null)
+        duration=$(yt-dlp --get-duration "$url" 2>/dev/null)
+        uploader=$(yt-dlp --get-filename -o "%(uploader)s" "$url" 2>/dev/null)
+        
+        echo -e "${G0LD}[T1TL3]${N0C0L0R} ${W1D3}$title${N0C0L0R}"
+        echo -e "${G0LD}[4UTH0R]${N0C0L0R} ${C74N}$uploader${N0C0L0R}"
+        echo -e "${G0LD}[L3NGTH]${N0C0L0R} ${H4X0R}$duration${N0C0L0R}"
+        
+        # Show top formats
+        echo -e "\n${G0LD}[T0P F0RM4TS]${N0C0L0R}"
+        yt-dlp -F "$url" | grep -E "^[0-9]+" | head -10 | while read -r line; do
+            echo -e "  ${H4X0R}→${N0C0L0R} $line"
+        done
+        
+        echo -e "\n${G0LD}[*] PR3SS 3NT3R T0 R3TURN T0 M41N M3NU...${N0C0L0R}"
+        read
+        exec "$0" "$url"
+        ;;
+        
+    *)
+        echo -e "${R00T}[!] 1NV4L1D CH01C3. 3X1T1NG...${N0C0L0R}"
+        exit 0
+        ;;
+esac
+
+# Exit banner
+echo -e "${R00T}${S3P4R4T0R3ND}${N0C0L0R}"
+echo -e "${H4X0R}[*] H4CK C0MPL3T3. R3M3MB3R T0 ST4R TH3 R3P0:${N0C0L0R}"
+echo -e "${G0LD}    https://github.com/kairusds/termux-url-opener${N0C0L0R}"
+echo -e "${R00T}${S3P4R4T0R3ND}${N0C0L0R}\n"
